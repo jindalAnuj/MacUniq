@@ -17,7 +17,7 @@ install_shell_config() {
         fi
 
         # Add the command to source all files in the ~/.shell_config directory in the .zshrc file
-        echo 'for f in ~/.shell_config/*; do source $f; done' >> ~/.zshrc
+        echo 'for f in ~/.shell_config/*.sh; do source $f; done' >> ~/.zshrc
 
         # Reload the .zshrc file
         source ~/.zshrc
