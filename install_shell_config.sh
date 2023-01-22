@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_shell_config() {
-    read -p "Do you want to proceed with the installation? [y/n]: " choice
+    read -p "Do you want to configure bash-utils? [y/n]: " choice
 
     if [ "$choice" = "y" ]; then
         # Create the .zshrc file if it does not exist
@@ -27,6 +27,7 @@ install_shell_config() {
         echo "Installation terminated."
     else
         echo "Invalid input. Please enter y or n."
+        ## Recursion 
         install_shell_config
     fi
 }
