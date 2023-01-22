@@ -79,8 +79,8 @@ if ! command -v nvm >/dev/null; then
   # Add nvm initialization to .zshrc file
   # Add the nvm path to the .zshrc file
   echo 'export NVM_DIR="$HOME/.nvm"' >>~/.zshrc
-  echo '[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm' >>~/.zshrc
-  echo '[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion' >>~/.zshrc
+  echo '[ -s "/usr/homebrew/opt/nvm/nvm.sh" ] && . "/usr/homebrew/opt/nvm/nvm.sh" # This loads nvm' >>~/.zshrc
+  echo '[ -s "/usr/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion' >>~/.zshrc
   # Reload the .zshrc file
   source ~/.zshrc
 else
@@ -138,7 +138,7 @@ while read -r app; do
   if brew cask info "$app" >/dev/null; then
     if [ "$response" = "s" ] || [ "$response" = "y" ]; then
       echo "Downloading $app..."
-      brew cask install "$app" 2>>$err_log
+      brew install --cask "$app" 2>>$err_log
     elif [ "$response" = "n" ]; then
       echo "Skipping $app..."
     else
@@ -148,7 +148,7 @@ while read -r app; do
       # Check user response and download or skip application
       if [ "$response" = "y" ]; then
         echo "Downloading $app..."
-        brew cask install "$app" 2>>$err_log
+        brew install --cask "$app" 2>>$err_log
       elif [ "$response" = "s" ]; then
         echo "Skipping $app..."
       elif [ "$response" = "yall" ]; then
