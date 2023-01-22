@@ -12,5 +12,6 @@ Note: you can add or remove some blocks in the script as per your usecase. Pleas
 ## Setup new mac.
 - download the repo as zip and extract
 - chmod +x setup-mac.sh
+- create and add apps list in **installed_apps.txt** (Please cleanup apps-list add only required files)
 - Run `sh setup-mac.sh`
 
