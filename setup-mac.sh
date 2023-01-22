@@ -66,11 +66,18 @@ gh auth login
 echo "You are now logged in to GitHub."
 
 source ./install_shell_config.sh
-
 install_shell_config
 
 # File containing the list of applications to be downloaded
 app_list="./installed_apps.txt"
+
+if [ ! -f "$app_list" ]; then
+    echo "File $app_list does not exist. Exiting the script."
+    echo "Extract list of apps from old mac and save in installed_apps.txt in project root directory"
+    exit 1
+else
+    echo "File $app_list exists. Continuing with the script."
+fi
 
 # Initialize variable to track user response
 response=""
