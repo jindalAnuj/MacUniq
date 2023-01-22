@@ -6,16 +6,13 @@ app_list="./installed_apps.txt"
 # Create file to save the list of applications
 touch $app_list
 
-# Prompt user to include system applications
-read -p "Include system applications in the list? (y/n) " include_system_apps
+# Extract the list of applications
+ls /Applications >> $app_list
+ls $HOME/Applications >> $app_list
 
-if [ "$include_system_apps" = "y" ]; then
-  # Extract the list of applications
-  ls /Applications > $app_list
-else
-  # Extract the list of applications and filter out system apps
-  ls /Applications | grep -v "\.app" | grep -v "\.localized" > $app_list
-fi
+#Removing duplicate entries
+sort $app_list | uniq > temp_file
+mv temp_file $app_list
 
 # Print the list of applications
 echo "The following applications are currently installed on your old Mac:"
