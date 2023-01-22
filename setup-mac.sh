@@ -75,19 +75,17 @@ if ! command -v nvm >/dev/null; then
   echo "nvm is not installed. Installing..."
   # Install nvm using Homebrew
   brew install nvm
+  echo "Updating .zshrc file..."
+  # Add nvm initialization to .zshrc file
+  # Add the nvm path to the .zshrc file
+  echo 'export NVM_DIR="$HOME/.nvm"' >>~/.zshrc
+  echo '[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm' >>~/.zshrc
+  echo '[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion' >>~/.zshrc
+  # Reload the .zshrc file
+  source ~/.zshrc
 else
   echo "nvm is already installed."
 fi
-
-echo "Updating .zshrc file..."
-# Add nvm initialization to .zshrc file
-# Add the nvm path to the .zshrc file
-echo 'export NVM_DIR="$HOME/.nvm"' >>~/.zshrc
-echo '[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm' >>~/.zshrc
-echo '[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion' >>~/.zshrc
-
-# Reload the .zshrc file
-source ~/.zshrc
 
 echo "nvm has been installed and exported to the .zshrc file."
 
