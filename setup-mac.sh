@@ -65,6 +65,9 @@ gh auth login
 
 echo "You are now logged in to GitHub."
 
+source ./install_shell_config.sh
+
+install_shell_config
 
 # File containing the list of applications to be downloaded
 app_list="./installed_apps.txt"
